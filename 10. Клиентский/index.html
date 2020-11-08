@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Lab 10</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        - создать, удалить кнопку;
+        - устанавливать размеры кнопки;
+        - устанавливать фон кнопки;
+        - устанавливать текст кнопки;
+    */
+        class Button{
+
+            constructor(title, size, bg){
+                this.title = title;
+                this.size = size;
+                this.bg = bg;
+            }
+
+            toString(){
+                return `
+                    <button style="background-color: ${this.bg};width:${this.size.width}px;height:${this.size.height}px;">${this.title}</button>
+                `;
+            }
+            
+            setSize(size){
+                this.size = size;
+            }
+
+            setBg(bg){
+                this.bg = bg;
+            }
+
+            setTitle(title){
+                this.title = title;
+            }
+
+        }
+    </script>
+    
+    <div id="busket">
+
+        <a href="#">Корзина</a> | <span id="count">0</span>
+    </div>
+    <div id="app">
+    </div>
+
+    <script src="script.js" defer></script>
+    <script type="text/javascript">
+        
+    </script>
+</body>
+</html>

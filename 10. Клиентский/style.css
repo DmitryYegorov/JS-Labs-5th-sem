@@ -1,0 +1,38 @@
+body{
+    font-family: sans-serif;
+}
+
+#app{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#app .item{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #c0c1c1;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#app .item span{
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+#app .item img{
+    max-width: 150px;
+}
+
+button{
+    border: none;
+    border-radius: 7px;
+}
+
+.gray{
+    background-color: lightgray;
+}

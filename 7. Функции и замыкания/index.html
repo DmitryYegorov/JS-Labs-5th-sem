@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function task1(){
+            let [x, , y] = [1,2,3];
+            const questionsCount = 10;
+            let yesCount = 0;
+            let noCount = 0;
+            function getAnswer(){
+                if (confirm(`Dmitry, ${yesCount}, ${noCount}, ${yesCount + noCount}`)){
+                    yesCount++;
+                }else{
+                    noCount++;
+                }
+                if (yesCount + noCount < questionsCount) {
+                    getAnswer();
+                }else{
+                    alert("Вы ответили на все вопросы!")
+                }
+            }
+            getAnswer();
+        }
+
+        function task2(){
+
+            function curry(f){
+                return function(a){
+                    return function(b){
+                        return function(c){
+                            return f(a,b,c);
+                        }
+                    }
+                }
+            }
+
+            const p = (a,b,c) => {
+                return a*b*c;
+            };
+
+            let carriedP = curry(p);
+            let pFixedA = carriedP(2);
+
+            alert(pFixedA(4)(5));
+
+        }
+
+        function task3(){
+
+            function discount(size){
+                return function (s){
+                    if (s <= 200){
+                        return s*size;
+                    }else if (s > 200 && s <= 400){
+                        return s*(2*size);
+                    }
+                }
+            }
+
+            let sale = discount(0.1);
+            let s = +prompt("Сумма покупки:", "0");
+            alert("С Вас: "+(s-sale(s)).toString()+" по скидке "+sale(s));
+
+        }
+
+        function task4(){
+            const point = {
+                x: 0,
+                y: 0
+            }
+
+            function* getLocation(){
+                let direction = "";
+                while(true) {
+                    direction = prompt("Direction?");
+                    switch (direction) {
+                        case "left":
+                            point.x -= 10;
+                            break;
+                        case "right":
+                            point.x += 10;
+                            break;
+                        case "up":
+                            point.y += 10;
+                            break;
+                        case "down":
+                            point.y -= 10;
+                            break
+                    }
+                    if (direction === "stop") return point;
+                    yield point;
+                }
+            }
+
+            while(!getLocation().next().done){
+                console.log(getLocation().next().value)
+            }
+        }
+    </script>
+</body>
+</html>
