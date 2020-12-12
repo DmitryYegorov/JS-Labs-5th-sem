@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="scene">
+        <div data-speed="10" class="layer layer-bg"></div>
+        <div data-speed="40" class="layer layer-1"></div>
+        <div data-speed="80" class="layer layer-2"></div>
+    </div>
+
+    <script type="text/javascript">
+        function parallax(event){
+            this.querySelectorAll(".layer").forEach(layer => {
+               const speed = layer.getAttribute("data-speed");
+               layer.style.transform = `translate(${event.clientX*speed/1000}px)`;
+            });
+        }
+
+        document.onmousemove = parallax;
+    </script>
+</body>
+</html>

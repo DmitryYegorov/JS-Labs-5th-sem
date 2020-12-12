@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animations</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+<div id="wrap">
+
+    <div class="card">
+        <div class="card-item"></div>
+    </div>
+    <div class="card">
+        <div class="card-item"></div>
+    </div>
+    <div class="card">
+        <div class="card-item"></div>
+    </div>
+
+
+    <script type="text/javascript">
+        const cards = document.querySelectorAll(".card");
+        for(let card of cards)
+        {
+            card.addEventListener("mousemove", rotate);
+            card.addEventListener("mouseout", stopRotate)
+        }
+
+
+        function rotate(event){
+            const cardItem = this.querySelector(".card-item");
+            const halfHeight = cardItem.offsetHeight / 2;
+            cardItem.style.transform = `rotateX(${-(event.offsetY - halfHeight)/10}deg) rotateY(${-(event.offsetX - halfHeight)/10}deg)`;
+        }
+
+        function stopRotate(event){
+            const cardItem = this.querySelector(".card-item");
+            cardItem.style.transform = "rotate(0)"
+        }
+    </script>
+</div>
+
+</body>
+</html>

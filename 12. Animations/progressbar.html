@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress bar</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        html, body{
+            background-color: #6485f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+        }
+
+        .progress-ring__circle{
+        }
+    </style>
+</head>
+<body>
+    <svg class="progress-ring" width="120" height="120">
+        <circle class="progress-ring__circle" fill="transparent" stroke="#fff" stroke-width="4" cx="60" cy="60" r="52"/>
+    </svg>
+
+    <input type="range" min="0" max="100" id="rangeBar" value="0">
+<script>
+    const circle = document.querySelector(".progress-ring__circle");
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    const rangeBar = document.getElementById("rangeBar");
+
+    circle.style.strokeDasharray = `${circumference}  ${circumference}`;
+    circle.style.strokeDashoffset = `${circumference}`;
+
+    function setProgress(percent){
+        const offset = circumference - percent / 100 * circumference;
+        circle.style.strokeDashoffset = offset.toString();
+    }
+
+    rangeBar.addEventListener("input", () => {
+        setProgress(rangeBar.value);
+    });
+
+</script>
+</body>
+</html>
