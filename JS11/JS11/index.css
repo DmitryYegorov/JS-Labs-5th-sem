@@ -1,0 +1,32 @@
+.redline{
+	position:absolute;
+	top: 0px;
+	left:199px;
+	width: 4px;
+	height:628px;
+	background: red;
+}
+.level{
+	display: inline-block;
+	position:absolute;
+	top: 0px;
+	width: 66px;
+	height:628px;
+	opacity: 0.8;
+}
+.level p{
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.ball{
+	position: absolute;
+	top:296px;
+	left:183px;
+	background-color: #0bff00;
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+}
